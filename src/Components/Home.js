@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes,useNavigate, Link, BrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { confirm } from "react-confirm-box";
 
 import "./home.css";
@@ -24,7 +24,7 @@ const Home = () => {
     
  if(result){
   data.map((e) => {
-    if (e.id == id) {
+    if (e.id === id) {
       data.splice(e, 1);
       
     }})

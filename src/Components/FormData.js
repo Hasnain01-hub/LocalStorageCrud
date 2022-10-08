@@ -8,26 +8,24 @@ const FormData = () => {
   const [desidnation, setdesidnation] = useState();
   const [dep, setdep] = useState();
   const [company, setcompany] = useState();
-  const [data, setdata] = useState(
-    []
-  );
-  const navigate = useNavigate();  
+  const [data, setdata] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const getdata = JSON.parse(window.localStorage.getItem("user"));
-    setdata([ getdata]);
+    setdata([getdata]);
   }, []);
-  
+
   const submitdata = (e) => {
     // e.preventDefault();
-    const newdata = {id, name, desidnation, dep, company };
+    const newdata = { id, name, desidnation, dep, company };
     // data.push(newdata);
     localStorage.setItem("user", JSON.stringify(newdata));
-    navigate('/');
+    navigate("/");
   };
   return (
     <>
       <div className="card">
-        <form className="form" >
+        <form className="form">
           <div className="inp">
             <label for="Name">Name&nbsp;</label>
             <input
@@ -65,8 +63,12 @@ const FormData = () => {
             />
           </div>
           <div className="inp">
-            <input className="submit" type="submit" onClick={submitdata}/>
-            <Link className="cancel" to="/">
+            <input
+              className="submit btn-primary"
+              type="submit"
+              onClick={submitdata}
+            />
+            <Link className="cancel btn-danger" to="/">
               Cancel
             </Link>
           </div>

@@ -8,6 +8,9 @@
   gap: 12px;
   padding: 20px;
 }
+.form > input {
+  height: 35px !important;
+}
 .inp {
   display: flex;
   flex-direction: row;
@@ -41,11 +44,10 @@
   padding: 30px;
   border: 1px solid #000;
   height: 100%;
-  width: 50%;
+  width: 80vw;
   margin: 10% auto;
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 4px 12px 0 rgba(31, 38, 135, 0.37);
-
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 10px;
 }
@@ -64,8 +66,7 @@
   text-decoration: none;
 }
 .button > button {
-  padding: 10px;
-
+  padding: 5px;
   outline: none;
   border: 1px solid black;
   font-size: 20px;
@@ -81,6 +82,25 @@ h2 small {
   font-size: 0.5em;
 }
 
+.btn-danger {
+  height: 35px;
+  background-color: red;
+  color: #fff;
+  border:none;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.btn-primary {
+  height: 35px;
+  background-color: green;
+  color: #fff;
+  border:none !important;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 150px;
+  font-family: 'Poppins', sans-serif;
+}
 .responsive-table li {
   border-radius: 3px;
   padding: 25px 30px;

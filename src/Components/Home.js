@@ -1,3 +1,4 @@
+import _, { indexOf } from "lodash";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { confirm } from "react-confirm-box";
@@ -23,14 +24,16 @@ const Home = () => {
     const result = await Custumd("Are you sure you want to delete this item?");
 
     if (result) {
-      data.map((e) => {
-        if (e.id === id) {
-          data.splice(e, 1);
-        }
+      const updated=_.flattenDeep(data);
+      _.flattenDeep(data).map((e,index) => {
+        if (e.id == id) {
+          
+        console.log(updated);
+           updated.splice(index,1);
+          }
       });
-
-      localStorage.setItem("user", JSON.stringify(data));
-      window.location.reload();
+      localStorage.setItem("user", JSON.stringify(updated));
+      // window.location.reload();
     }
   };
   return (
@@ -52,7 +55,7 @@ const Home = () => {
               <div class="col col-3">Action</div>
             </li>
             {/* {console.log("here is user", services)} */}
-            {data.map((s, i) => (
+            {_.flattenDeep(data).map((s, i) => (
               <>
                 <li class="table-row" key={s.id}>
                   <div class="col col-1" data-label="Name">

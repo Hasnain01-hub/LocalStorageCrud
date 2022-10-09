@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./home.css";
+import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 const FormData = () => {
   var id = uuidv4();
@@ -19,8 +20,10 @@ const FormData = () => {
     // e.preventDefault();
     const newdata = { id, name, desidnation, dep, company };
     // data.push(newdata);
-    localStorage.setItem("user", JSON.stringify(newdata));
-    navigate("/");
+    setdata([ newdata,...data]);
+    localStorage.setItem("user", JSON.stringify(_.flattenDeep(data)));
+    console.log(data);
+    // navigate("/");
   };
   return (
     <>
@@ -65,7 +68,8 @@ const FormData = () => {
           <div className="inp">
             <input
               className="submit btn-primary"
-              type="submit"
+              type="Submit"
+              
               onClick={submitdata}
             />
             <Link className="cancel btn-danger" to="/">

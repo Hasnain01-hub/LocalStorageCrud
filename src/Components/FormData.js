@@ -15,18 +15,26 @@ const FormData = () => {
     const getdata = JSON.parse(window.localStorage.getItem("user"));
     setdata([getdata]);
   }, []);
-
   const submitdata = (e) => {
     // e.preventDefault();
     const newdata = { id, name, desidnation, dep, company };
     // data.push(newdata);
-    setdata([ newdata,...data]);
-    localStorage.setItem("user", JSON.stringify(_.flattenDeep(data)));
+    var datas = _.flattenDeep(data);
+    datas[0]==null || datas.length == 0
+      ? localStorage.setItem("user", JSON.stringify(newdata))
+      : localStorage.setItem(
+          "user",
+          JSON.stringify(_.flattenDeep([...data, newdata]))
+        );
+    // localStorage.setItem("user", JSON.stringify(_.flattenDeep(data)));
     console.log(data);
     // navigate("/");
   };
+
   return (
     <>
+      {console.log(data)}
+
       <div className="card">
         <form className="form">
           <div className="inp">
@@ -69,7 +77,6 @@ const FormData = () => {
             <input
               className="submit btn-primary"
               type="Submit"
-              
               onClick={submitdata}
             />
             <Link className="cancel btn-danger" to="/">

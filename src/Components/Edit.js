@@ -4,18 +4,18 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Edit = () => {
   const id = useParams();
-  const [ect, setect] = useState();
-  const [name, setname] = useState();
-  const [desidnation, setdesidnation] = useState();
-  const [dep, setdep] = useState();
-  const [company, setcompany] = useState();
+  const [ect, setect] = useState({});
+  const [name, setname] = useState("");
+  const [desidnation, setdesidnation] = useState("");
+  const [dep, setdep] = useState("");
+  const [company, setcompany] = useState("");
 
   const [data, setdata] = useState({});
   useEffect(() => {
     const getdata = JSON.parse(window.localStorage.getItem("user"));
     setdata([getdata]);
-
-    _.flattenDeep(getdata).map((e) => {
+  
+     _.flattenDeep([getdata]).map((e) => {
       if (e.id == id.id) {
         setname(e.name);
         setdesidnation(e.desidnation);
@@ -37,13 +37,13 @@ const Edit = () => {
         e.company = company;
       }
     });
-    console.log(_.flattenDeep(data));
+    // console.log(_.flattenDeep(data));
     localStorage.setItem("user", JSON.stringify(_.flattenDeep(data)));
     navigate('/');
   };
   return (
     <>
-      {console.log(data)}
+      
       <div className="card">
         <form className="form" onSubmit={submitdata}>
           <div className="inp">

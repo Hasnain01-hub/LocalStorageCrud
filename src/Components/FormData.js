@@ -1,6 +1,7 @@
+/* eslint-disable eqeqeq */
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./home.css";
+import { Link } from "react-router-dom";
+import "./form.css";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 const FormData = () => {
@@ -10,7 +11,6 @@ const FormData = () => {
   const [dep, setdep] = useState();
   const [company, setcompany] = useState();
   const [data, setdata] = useState([]);
-  const navigate = useNavigate();
   useEffect(() => {
     const getdata = JSON.parse(window.localStorage.getItem("user"));
     setdata([getdata]);
@@ -20,12 +20,12 @@ const FormData = () => {
     const newdata = { id, name, desidnation, dep, company };
     // data.push(newdata);
     var datas = _.flattenDeep(data);
-    datas[0]==null || datas.length == 0
+    datas[0] == null || datas.length == 0
       ? localStorage.setItem("user", JSON.stringify(newdata))
       : localStorage.setItem(
-          "user",
-          JSON.stringify(_.flattenDeep([...data, newdata]))
-        );
+        "user",
+        JSON.stringify(_.flattenDeep([...data, newdata]))
+      );
     // localStorage.setItem("user", JSON.stringify(_.flattenDeep(data)));
     console.log(data);
     // navigate("/");
@@ -35,56 +35,30 @@ const FormData = () => {
     <>
       {console.log(data)}
 
-      <div className="card">
-        <form className="form">
-          <div className="inp">
-            <label for="Name">Name&nbsp;</label>
-            <input
-              id="Name"
-              type="text"
-              placeholder="Name"
-              onChange={(e) => setname(e.target.value)}
-            />
-          </div>
-          <div className="inp">
-            <label for="Designation">Designation&nbsp;</label>
-            <input
-              type="text"
+      <form class="form">
+        <h2>ADD DATA</h2>
+        <p type="Name:"><input id="Name"
+          type="text"
+          placeholder="Name"
+          onChange={(e) => setname(e.target.value)}></input></p>
+        <p type="Designation:"><input type="text"
               placeholder="Designation"
               id="Designation"
-              onChange={(e) => setdesidnation(e.target.value)}
-            />
-          </div>
-          <div className="inp">
-            <label for="Department">Department&nbsp;</label>
-            <input
-              type="text"
+              onChange={(e) => setdesidnation(e.target.value)}></input></p>
+        <p type="Department:"><input type="text"
               placeholder="Department"
               id="Department"
-              onChange={(e) => setdep(e.target.value)}
-            />
-          </div>
-          <div className="inp">
-            <label for="Company">Company&nbsp;</label>
-            <input
-              type="text"
+              onChange={(e) => setdep(e.target.value)}></input></p> 
+              <p type="Company:"><input type="text"
               placeholder="Company"
               id="Company"
-              onChange={(e) => setcompany(e.target.value)}
-            />
-          </div>
-          <div className="inp">
-            <input
-              className="submit btn-primary"
-              type="Submit"
-              onClick={submitdata}
-            />
-            <Link className="cancel btn-danger" to="/">
+              onChange={(e) => setcompany(e.target.value)}></input></p> 
+        
+        <button onClick={submitdata}>Submit</button>
+        <Link className="cancel btn-danger" to="/">
               Cancel
             </Link>
-          </div>
-        </form>
-      </div>
+      </form>
     </>
   );
 };

@@ -1,16 +1,11 @@
-import _, { indexOf, isNull } from "lodash";
+/* eslint-disable eqeqeq */
+/* eslint-disable array-callback-return */
+import _ from "lodash";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { confirm } from "react-confirm-box";
 
 import "./home.css";
 import Custumd from "./Custum";
-const options = {
-  labels: {
-    confirmable: "Confirm",
-    cancellable: "Cancel",
-  },
-};
 
 const Home = () => {
   const [data, setdata] = useState([]);
@@ -67,7 +62,7 @@ const Home = () => {
                 <div class="col col-3">Action</div>
               </li>
               {/* {console.log("here is user", services)} */}
-              {_.flattenDeep(data).map((s, i) => (
+              {_.flattenDeep(data).map((s) => (
                 <>
                   <li class="table-row" key={s.id}>
                     <div class="col col-1" data-label="Name">

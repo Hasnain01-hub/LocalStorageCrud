@@ -68,8 +68,24 @@
   border-radius: 5px;
   font-size: 16px;
   width: 150px;
+  margin-right: 45%;
   font-family: 'Poppins', sans-serif;
 }
+
+.btn-warning {
+  height: 35px;
+  background-color: rgb(255, 166, 0);
+  color: #fff;
+  border:none !important;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 50px;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+
+
+
 .responsive-table li {
   border-radius: 3px;
   padding: 25px 30px;

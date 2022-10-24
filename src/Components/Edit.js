@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable eqeqeq */
 import _ from "lodash";
+import "./form.css";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -49,7 +50,7 @@ const Edit = () => {
     <>
       
       <div className="card">
-        <form className="form" onSubmit={submitdata}>
+        <form class="form" onSubmit={submitdata}>
           <div className="inp">
             <label for="Name">Name&nbsp;</label>
             <input

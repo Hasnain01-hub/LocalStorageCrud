@@ -28,7 +28,7 @@ const FormData = () => {
       );
     // localStorage.setItem("user", JSON.stringify(_.flattenDeep(data)));
     console.log(data);
-    // navigate("/");
+
   };
 
   return (

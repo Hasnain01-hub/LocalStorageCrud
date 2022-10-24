@@ -48,11 +48,7 @@ const Home = () => {
        : (
         <div className="toppad">
           <div class="container3">
-            <div>
-              <Link className="button" to="/add-form">
-                <button className="btn btn-primary"> Add</button>
-              </Link>
-            </div>
+            
             <ul class="responsive-table">
               <li class="table-header">
                 <div class="col col-1">Name</div>
@@ -79,9 +75,15 @@ const Home = () => {
                     </div>
                     <div class="col col-3" data-label="Action">
                       <div className="btns">
+                     
                         <Link className="button" to={`/edit-form/${s.id}`}>
+                        <button
+                          className="btn btn-warning"
+                        >
                           Edit
+                          </button>
                         </Link>
+                        
                         <button
                           className="btn btn-danger"
                           onClick={(e) => deletedata(e, s.id)}
@@ -97,6 +99,11 @@ const Home = () => {
               ))}
             </ul>
           </div>
+          <div>
+              <Link className="button" to="/add-form">
+                <button className="btn btn-primary"> Add</button>
+              </Link>
+            </div>
         </div>
       )}
     </>

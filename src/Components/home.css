@@ -83,8 +83,9 @@
   font-family: 'Poppins', sans-serif !important;
 }
 
-
-
+.responsive-table {
+  margin: 0;
+}
 
 .responsive-table li {
   border-radius: 3px;

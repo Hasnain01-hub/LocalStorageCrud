@@ -26,6 +26,7 @@ const Home = () => {
           updated.splice(index, 1);
         }
       });
+      setdata(updated)
       localStorage.setItem("user", JSON.stringify(updated));
       // window.location.reload();
     }

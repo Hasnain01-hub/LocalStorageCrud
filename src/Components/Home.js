@@ -26,6 +26,7 @@ const Home = () => {
           updated.splice(index, 1);
         }
       });
+      setdata(updated)
       localStorage.setItem("user", JSON.stringify(updated));
       // window.location.reload();
     }
@@ -38,7 +39,7 @@ const Home = () => {
         <center>
           <h1>No Data</h1>
           <br />
-          <div>
+          <div className="grid place-center">
             <Link className="button" to="/add-form">
               <button className="btn btn-primary"> Add</button>
             </Link>
